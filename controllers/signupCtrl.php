@@ -1,4 +1,7 @@
 <?php
+session_start();
+
+require 'models/userModel.php';
 
 if (isset($_GET['action']) && $_GET['action'] === 'create-user') {
 
@@ -7,7 +10,6 @@ if (isset($_GET['action']) && $_GET['action'] === 'create-user') {
   $password = htmlspecialchars($_POST['password']) ?? '';
   $passwordRepeat = htmlspecialchars($_POST['passwordRepeat']) ?? '';
 
-
   $usernameErr = $emailErr = $passwordErr = $PasswordRepeatErr = "";
 
   // username validation
@@ -15,6 +17,8 @@ if (isset($_GET['action']) && $_GET['action'] === 'create-user') {
     $usernameErr = "Username is required";
   } elseif (!preg_match('/^[a-zA-Z]+$/', $username)) {
     $usernameErr = "Username should contain only letters";
+  } elseif (usernameExists($database, $username)) {
+    $usernameErr = "This username is taken";
   }
 
   // email validation
@@ -23,6 +27,8 @@ if (isset($_GET['action']) && $_GET['action'] === 'create-user') {
   } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     $emailErr = "The email is not valid";
     echo $emailErr;
+  } elseif (emailExists($database, $email)) {
+    $emailErr = "This Email is already used";
   }
 
   // password Validation
@@ -37,20 +43,23 @@ if (isset($_GET['action']) && $_GET['action'] === 'create-user') {
   // check for errors
   if (empty($usernameErr) && empty($emailErr) && empty($passwordErr) && empty($PasswordRepeatErr)) {
     // Create user in database
-    require 'models/userModel.php';
+
     $affectedRows = createUser($database, $username, $email, $password);
+
     if ($affectedRows > 0) {
-      require 'views/login.php';
+      $_SESSION['SIGNUP_SUCCESS'] = 'Your account has been created successfully, please Sign in';
+      header('Location: ?page=login');
     } else {
-      $signUpErr = 'An error has occured while creating the account, Please try again later';
+      $signUpErr = 'An error has occured, Please try again later.';
       require 'views/signup.php';
     }
 
   } else {
+    // show the form with errors
     require 'views/signup.php';
   }
 
-
 } else {
+
   require 'views/signup.php';
 }
