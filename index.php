@@ -1,10 +1,11 @@
 <?php
+session_start();
 
 try {
   // Connecting to database
   require 'config/constants.php';
   require 'config/dbConnect.php';
-  
+
   // Router
   if (isset($_GET['page'])) {
     if ($_GET['page'] === 'signup') {

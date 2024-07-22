@@ -1,5 +1,4 @@
 <?php
-session_start();
 
 require 'models/userModel.php';
 
@@ -25,6 +24,7 @@ if (isset($_GET['action']) && $_GET['action'] === 'log-user') {
     // getting the user info to store it in the session
     $user = getUserByEmail($database, $email);
     $_SESSION['USER'] = [
+      'id' => $user['id'],
       'username' => $user['username'],
       'email' => $user['email']
     ];
