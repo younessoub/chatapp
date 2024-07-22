@@ -8,6 +8,15 @@ function createUser($database, $username, $email, $password)
   return $result;
 }
 
+function getUserByEmail($database, $email)
+{
+  $sql = "SELECT * FROM users WHERE email = ?;";
+  $statement = $database->prepare($sql);
+  $statement->execute([$email]);
+  $row = $statement->fetch(PDO::FETCH_ASSOC);
+  return $row;
+}
+
 function usernameExists($database, $username)
 {
   $sql = "SELECT * FROM users WHERE username = ?;";

@@ -20,11 +20,16 @@ if (isset($_GET['action']) && $_GET['action'] === 'log-user') {
     $loginErr = "Wrong Email or Password";
   }
 
+  // check for errors
   if (empty($loginErr) && empty($emailErr) && empty($passwordErr)) {
-    // login user
+    // getting the user info to store it in the session
+    $user = getUserByEmail($database, $email);
     $_SESSION['USER'] = [
-      'user'
+      'username' => $user['username'],
+      'email' => $user['email']
     ];
+
+    require 'views/home.php';
   } else {
     // show form with errors
     require 'views/login.php';

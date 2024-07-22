@@ -1,3 +1,3 @@
 <?php
 
-echo 'Homepage';
+print_r($_SESSION['USER']);
