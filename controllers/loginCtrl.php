@@ -29,11 +29,15 @@ if (isset($_GET['action']) && $_GET['action'] === 'log-user') {
       'email' => $user['email']
     ];
 
-    require 'views/home.php';
+    header('Location: index.php');
   } else {
     // show form with errors
     require 'views/login.php';
   }
+} elseif (isset($_GET['action']) && $_GET['action'] === 'logout-user') {
+  session_unset();
+  session_destroy();
+  header('Location: index.php');
 } else {
   require 'views/login.php';
 }

@@ -25,7 +25,6 @@ if (isset($_GET['action']) && $_GET['action'] === 'create-user') {
     $emailErr = "Email is required";
   } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     $emailErr = "The email is not valid";
-    echo $emailErr;
   } elseif (emailExists($database, $email)) {
     $emailErr = "This Email is already used";
   }
@@ -43,11 +42,11 @@ if (isset($_GET['action']) && $_GET['action'] === 'create-user') {
   if (empty($usernameErr) && empty($emailErr) && empty($passwordErr) && empty($PasswordRepeatErr)) {
     // Create user in database
 
-    $affectedRows = createUser($database, $username, $email, $password);
+    $result = createUser($database, $username, $email, $password);
 
-    if ($affectedRows > 0) {
+    if ($result) {
       $_SESSION['SIGNUP_SUCCESS'] = 'Your account has been created successfully, please Sign in';
-      header('Location: ?page=login');
+      header('Location: index.php?page=login');
     } else {
       $signUpErr = 'An error has occured, Please try again later.';
       require 'views/signup.php';

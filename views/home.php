@@ -1,3 +1,11 @@
-<?php
+<?php $title = 'Chatapp - Home'; ?>
 
-print_r($_SESSION['USER']);
+<?php ob_start(); ?>
+
+<main>
+  <h1>Homepage</h1>
+  <?php echo $_SESSION['USER']['username'] ?? 'Not logged in' ?>
+</main>
+
+<?php $content = ob_get_clean(); ?>
+<?php require 'views/layout.php'; ?>

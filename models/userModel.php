@@ -4,8 +4,9 @@ function createUser($database, $username, $email, $password)
 {
   $sql = "INSERT INTO users (username, email, password) VALUES (?, ?, ?);";
   $statement = $database->prepare($sql);
-  $result = $statement->execute([$username, $email, $password]);
-  return $result;
+  $statement->execute([$username, $email, $password]);
+  $rowCount = $statement->rowCount();
+  return $rowCount > 0 ? true : false;
 }
 
 function getUserByEmail($database, $email)
