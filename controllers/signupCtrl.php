@@ -16,7 +16,7 @@ if (isset($_GET['action']) && $_GET['action'] === 'create-user') {
     $usernameErr = "Username is required";
   } elseif (!preg_match('/^[a-zA-Z]+$/', $username)) {
     $usernameErr = "Username should contain only letters";
-  } elseif (usernameExists($database, $username)) {
+  } elseif (usernameTaken($database, $username)) {
     $usernameErr = "This username is taken";
   }
 

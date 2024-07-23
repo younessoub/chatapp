@@ -48,4 +48,4 @@
 </main>
 
 <?php $content = ob_get_clean(); ?>
-<?php include 'views/layout.php'; ?>
+<?php require 'views/layout.php'; ?>

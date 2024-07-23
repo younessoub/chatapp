@@ -27,7 +27,7 @@ function getUserByEmail($database, $email)
   return $row;
 }
 
-function usernameExists($database, $username)
+function usernameTaken($database, $username)
 {
   $sql = "SELECT * FROM users WHERE username = ?;";
   $statement = $database->prepare($sql);

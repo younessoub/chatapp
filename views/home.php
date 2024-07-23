@@ -24,7 +24,7 @@
     <h1 class="display-1 fw-bold mb-4">Chat App</h1>
     <p class="lead text-center">Connect and chat with friends in real-time!</p>
     <div class="d-flex justify-content-center">
-      <a href="#" class="btn btn-primary me-3 px-4">Create Room</a>
+      <a href="/create-room" class="btn btn-primary me-3 px-4">Create Room</a>
       <a href="#" class="btn btn-outline-primary px-4">Join Room</a>
     </div>
   </div>
@@ -32,97 +32,18 @@
   <div class="container mt-5">
     <h2 class="text-primary">Most Active Rooms</h2>
     <div class="row row-cols-1 row-cols-md-3 g-4">
-      <div class="col" id="card">
-        <div class="card shadow-sm ">
-          <img src="uploads\1721758795cat-8575641_640.jpg" width="200px" height="300px" class="card-img-top"
-            alt="Room image">
-          <div class="card-body">
-            <h5 class="card-title">Room Name</h5>
-            <p class="card-text">This is a brief description of the room. Lorem ipsum dolor sit amet consectetur
-              adipisicing elit. In quod labore voluptatum voluptatibus totam sint, reiciendis molestiae rem quia
-              accusantium excepturi sit velit nam eveniet. Labore iure quaerat est nostrum.</p>
-
-
-            <a href="#" class="btn btn-md btn-outline-primary float-end ">Join</a>
-
+      <?php foreach ($rooms as $room): ?>
+        <div class="col" id="card">
+          <div class="card shadow-sm ">
+            <img src="<?= $room['image'] ?>" width="200px" height="300px" class="card-img-top" alt="Room image">
+            <div class="card-body">
+              <h5 class="card-title"><?= $room['name'] ?></h5>
+              <p class="card-text"><?= $room['description'] ?></p>
+              <a href="" class="btn btn-md btn-outline-primary float-end ">Join</a>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="col" id="card">
-        <div class="card shadow-sm ">
-          <img src="uploads\1721758795cat-8575641_640.jpg" width="200px" height="300px" class="card-img-top"
-            alt="Room image">
-          <div class="card-body">
-            <h5 class="card-title">Room Name</h5>
-            <p class="card-text">This is a brief description of the room.</p>
-
-
-            <a href="#" class="btn btn-md btn-outline-primary float-end ">Join</a>
-
-
-          </div>
-        </div>
-      </div>
-      <div class="col" id="card">
-        <div class="card shadow-sm ">
-          <img src="uploads\1721758795cat-8575641_640.jpg" width="200px" height="300px" class="card-img-top"
-            alt="Room image">
-          <div class="card-body">
-            <h5 class="card-title">Room Name</h5>
-            <p class="card-text">This is a brief description of the room.</p>
-
-
-            <a href="#" class="btn btn-md btn-outline-primary float-end ">Join</a>
-
-
-          </div>
-        </div>
-      </div>
-      <div class="col" id="card">
-        <div class="card shadow-sm ">
-          <img src="uploads\1721758795cat-8575641_640.jpg" width="200px" height="300px" class="card-img-top"
-            alt="Room image">
-          <div class="card-body">
-            <h5 class="card-title">Room Name</h5>
-            <p class="card-text">This is a brief description of the room.</p>
-
-
-            <a href="#" class="btn btn-md btn-outline-primary float-end ">Join</a>
-
-
-          </div>
-        </div>
-      </div>
-      <div class="col" id="card">
-        <div class="card shadow-sm ">
-          <img src="uploads\1721758795cat-8575641_640.jpg" width="200px" height="300px" class="card-img-top"
-            alt="Room image">
-          <div class="card-body">
-            <h5 class="card-title">Room Name</h5>
-            <p class="card-text">This is a brief description of the room.</p>
-
-
-            <a href="#" class="btn btn-md btn-outline-primary float-end ">Join</a>
-
-
-          </div>
-        </div>
-      </div>
-      <div class="col" id="card">
-        <div class="card shadow-sm ">
-          <img src="uploads\1721758795cat-8575641_640.jpg" width="200px" height="300px" class="card-img-top"
-            alt="Room image">
-          <div class="card-body">
-            <h5 class="card-title">Room Name</h5>
-            <p class="card-text">This is a brief description of the room.</p>
-
-
-            <a href="#" class="btn btn-md btn-outline-primary float-end ">Join</a>
-
-
-          </div>
-        </div>
-      </div>
+      <?php endforeach ?>
     </div>
 
     <div class="text-end"><a href="#" class="btn btn-primary btn-lg mt-5 ">Explore More Rooms...</a></div>
