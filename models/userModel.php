@@ -9,6 +9,15 @@ function createUser($database, $username, $email, $password)
   return $rowCount > 0 ? true : false;
 }
 
+function updateImage($database, $imgPath, $userId)
+{
+  $sql = "UPDATE users SET image = ? WHERE id = ?";
+  $statement = $database->prepare($sql);
+  $statement->execute([$imgPath, $userId]);
+  $rowCount = $statement->rowCount();
+  return $rowCount > 0 ? true : false;
+}
+
 function getUserByEmail($database, $email)
 {
   $sql = "SELECT * FROM users WHERE email = ?;";

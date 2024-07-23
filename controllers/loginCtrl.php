@@ -26,7 +26,8 @@ if (isset($_GET['action']) && $_GET['action'] === 'log-user') {
     $_SESSION['USER'] = [
       'id' => $user['id'],
       'username' => $user['username'],
-      'email' => $user['email']
+      'email' => $user['email'],
+      'image' => $user['image']
     ];
 
     header('Location: index.php');
@@ -37,7 +38,7 @@ if (isset($_GET['action']) && $_GET['action'] === 'log-user') {
 } elseif (isset($_GET['action']) && $_GET['action'] === 'logout-user') {
   session_unset();
   session_destroy();
-  header('Location: index.php');
+  require 'views/login.php';
 } else {
   require 'views/login.php';
 }

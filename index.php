@@ -12,6 +12,8 @@ try {
       require 'controllers/signupCtrl.php';
     } elseif ($_GET['page'] === 'login') {
       require 'controllers/loginCtrl.php';
+    } elseif ($_GET['page'] === 'profile') {
+      require 'controllers/profileCtrl.php';
     } else {
       echo 'Page Not Found';
     }
