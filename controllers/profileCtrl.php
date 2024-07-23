@@ -2,7 +2,7 @@
 
 if (!isset($_SESSION['USER'])) {
   // redirect user to login page if not loged in
-  header('Location: index.php?page=login');
+  header('Location: /login');
 } else {
 
   require 'models/userModel.php';
@@ -34,8 +34,7 @@ if (!isset($_SESSION['USER'])) {
         }
 
         // render the profile view
-        require 'views/profile.php';
-
+        header('Location: /profile');
 
       } else {
         $imageErr = 'The uploaded file is not an image';
@@ -55,7 +54,7 @@ if (!isset($_SESSION['USER'])) {
       }
       $_SESSION['USER']['image'] = NULL;
       // render the profile view
-      require 'views/profile.php';
+      header('Location: /profile');
 
     }
   } else {

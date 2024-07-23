@@ -7,12 +7,13 @@ try {
   require 'config/dbConnect.php';
 
   // Router
-  if (isset($_GET['page'])) {
-    if ($_GET['page'] === 'signup') {
+  if (isset($_SERVER['PATH_INFO'])) {
+    $sitePage = explode('/', $_SERVER['PATH_INFO'])[1];
+    if ($sitePage === 'signup') {
       require 'controllers/signupCtrl.php';
-    } elseif ($_GET['page'] === 'login') {
+    } elseif ($sitePage === 'login') {
       require 'controllers/loginCtrl.php';
-    } elseif ($_GET['page'] === 'profile') {
+    } elseif ($sitePage === 'profile') {
       require 'controllers/profileCtrl.php';
     } else {
       echo 'Page Not Found';

@@ -4,8 +4,8 @@ require 'models/userModel.php';
 
 if (isset($_GET['action']) && $_GET['action'] === 'log-user') {
 
-  $email = htmlspecialchars($_POST['email']) ?? '';
-  $password = htmlspecialchars($_POST['password']) ?? '';
+  $email = $_POST['email'] ?? '';
+  $password = $_POST['password'] ?? '';
 
   $loginErr = $emailErr = $passwordErr = "";
 
@@ -30,7 +30,7 @@ if (isset($_GET['action']) && $_GET['action'] === 'log-user') {
       'image' => $user['image']
     ];
 
-    header('Location: index.php');
+    header('Location: /');
   } else {
     // show form with errors
     require 'views/login.php';

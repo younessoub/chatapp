@@ -35,7 +35,7 @@
 <main>
   <div class="form">
 
-    <form action="index.php?page=login&action=log-user" method="POST">
+    <form action="/login?action=log-user" method="POST">
       <?php if (isset($_SESSION['SIGNUP_SUCCESS'])): ?>
         <div class="alert alert-success alert-dismissible fade show" role="alert">
           <i class="bi bi-check-circle-fill"></i>
@@ -45,7 +45,7 @@
       <?php endif ?>
       <img class="mb-4 d-block mx-auto" src="assets/images/logo.png" alt="logo" width="120" height="80">
       <h1 class="h3 mb-3 fw-bold text-center">Login</h1>
-      <?php if (isset($loginErr)): ?>
+      <?php if (isset($loginErr) && !empty($loginErr)): ?>
         <div class="alert alert-danger alert-dismissible fade show" role="alert">
           <i class="bi bi-exclamation-triangle-fill"></i>
           <?= $loginErr ?>
@@ -70,7 +70,7 @@
         </div>
       </div>
       <button class="w-100 btn btn-lg btn-primary" type="submit">Login</button>
-      <p class="text-center mt-3 mb-3 text-muted">Not Registered? <a href="index.php?page=signup">Sign Up</a></p>
+      <p class="text-center mt-3 mb-3 text-muted">Not Registered? <a href="/signup">Sign Up</a></p>
     </form>
   </div>
 </main>

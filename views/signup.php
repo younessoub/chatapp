@@ -31,7 +31,7 @@
 <main>
   <div class="form">
 
-    <form action="index.php?page=signup&action=create-user" method="POST">
+    <form action="/signup?action=create-user" method="POST">
       <?php if (isset($signUpErr)): ?>
         <div class="alert alert-danger alert-dismissible fade show" role="alert">
           <i class="bi bi-exclamation-triangle-fill"></i>
@@ -76,7 +76,7 @@
         </div>
       </div>
       <button class="w-100 btn btn-lg btn-primary" type="submit">Sign up</button>
-      <p class="text-center mt-3 mb-3 text-muted">Already Have an account? <a href="index.php?page=login">Login</a></p>
+      <p class="text-center mt-3 mb-3 text-muted">Already Have an account? <a href="/login">Login</a></p>
     </form>
   </div>
 </main>

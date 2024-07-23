@@ -2,30 +2,169 @@
 
 <?php ob_start(); ?>
 
+<style>
+  #card {
+    cursor: pointer;
+  }
+
+  #card:hover {
+    transform: scale(1.01);
+    transition: .1s all;
+  }
+
+  .card-text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+</style>
 <main>
-  <div class="container">
-    <h1>Homepage</h1>
+
+  <div class="container-fluid d-flex flex-column justify-content-center align-items-center">
+    <h1 class="display-1 fw-bold mb-4">Chat App</h1>
+    <p class="lead text-center">Connect and chat with friends in real-time!</p>
+    <div class="d-flex justify-content-center">
+      <a href="#" class="btn btn-primary me-3 px-4">Create Room</a>
+      <a href="#" class="btn btn-outline-primary px-4">Join Room</a>
+    </div>
   </div>
-  <?php echo $_SESSION['USER']['username'] ?? 'Not logged in' ?>
+
+  <div class="container mt-5">
+    <h2 class="text-primary">Most Active Rooms</h2>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+      <div class="col" id="card">
+        <div class="card shadow-sm ">
+          <img src="uploads\1721758795cat-8575641_640.jpg" width="200px" height="300px" class="card-img-top"
+            alt="Room image">
+          <div class="card-body">
+            <h5 class="card-title">Room Name</h5>
+            <p class="card-text">This is a brief description of the room. Lorem ipsum dolor sit amet consectetur
+              adipisicing elit. In quod labore voluptatum voluptatibus totam sint, reiciendis molestiae rem quia
+              accusantium excepturi sit velit nam eveniet. Labore iure quaerat est nostrum.</p>
+
+
+            <a href="#" class="btn btn-md btn-outline-primary float-end ">Join</a>
+
+          </div>
+        </div>
+      </div>
+      <div class="col" id="card">
+        <div class="card shadow-sm ">
+          <img src="uploads\1721758795cat-8575641_640.jpg" width="200px" height="300px" class="card-img-top"
+            alt="Room image">
+          <div class="card-body">
+            <h5 class="card-title">Room Name</h5>
+            <p class="card-text">This is a brief description of the room.</p>
+
+
+            <a href="#" class="btn btn-md btn-outline-primary float-end ">Join</a>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="col" id="card">
+        <div class="card shadow-sm ">
+          <img src="uploads\1721758795cat-8575641_640.jpg" width="200px" height="300px" class="card-img-top"
+            alt="Room image">
+          <div class="card-body">
+            <h5 class="card-title">Room Name</h5>
+            <p class="card-text">This is a brief description of the room.</p>
+
+
+            <a href="#" class="btn btn-md btn-outline-primary float-end ">Join</a>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="col" id="card">
+        <div class="card shadow-sm ">
+          <img src="uploads\1721758795cat-8575641_640.jpg" width="200px" height="300px" class="card-img-top"
+            alt="Room image">
+          <div class="card-body">
+            <h5 class="card-title">Room Name</h5>
+            <p class="card-text">This is a brief description of the room.</p>
+
+
+            <a href="#" class="btn btn-md btn-outline-primary float-end ">Join</a>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="col" id="card">
+        <div class="card shadow-sm ">
+          <img src="uploads\1721758795cat-8575641_640.jpg" width="200px" height="300px" class="card-img-top"
+            alt="Room image">
+          <div class="card-body">
+            <h5 class="card-title">Room Name</h5>
+            <p class="card-text">This is a brief description of the room.</p>
+
+
+            <a href="#" class="btn btn-md btn-outline-primary float-end ">Join</a>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="col" id="card">
+        <div class="card shadow-sm ">
+          <img src="uploads\1721758795cat-8575641_640.jpg" width="200px" height="300px" class="card-img-top"
+            alt="Room image">
+          <div class="card-body">
+            <h5 class="card-title">Room Name</h5>
+            <p class="card-text">This is a brief description of the room.</p>
+
+
+            <a href="#" class="btn btn-md btn-outline-primary float-end ">Join</a>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-end"><a href="#" class="btn btn-primary btn-lg mt-5 ">Explore More Rooms...</a></div>
+  </div>
+  <!-- <div class="container mt-3">
+    <div class="card border">
+      <div class="card-header d-flex justify-content-between">
+        <h5 class="card-title">Chat Window</h5>
+        <span class="badge bg-primary rounded-pill">1</span>
+      </div>
+      <div class="card-body overflow-auto" id="message-area">
+        <div class="d-flex mb-3">
+          <img src="assets/images/blank-profile-picture.png" width="32" height="32" class="rounded-circle me-2"
+            alt="Profile image">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Username</h5>
+              <p class="card-text">This is a message from Username.</p>
+            </div>
+          </div>
+        </div>
+        <div class="d-flex mb-3 justify-content-end">
+          <div class="card text-end">
+            <div class="card-body">
+              <h5 class="card-title">You</h5>
+              <p class="card-text">This is your reply message.</p>
+            </div>
+          </div>
+          <img src="assets/images/blank-profile-picture.png" width="32" height="32" class="rounded-circle ms-2"
+            alt="Profile image">
+        </div>
+      </div>
+      <div class="card-footer">
+        <div class="input-group">
+          <input type="text" class="form-control" id="message-input" placeholder="Type your message...">
+          <button class="btn btn-primary" id="send-button">Send</button>
+        </div>
+      </div>
+    </div>
+  </div> -->
 </main>
 
-<!-- Footer -->
-<div class="container">
-  <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-    <p class="col-md-4 mb-0 text-body-secondary">&copy; 2024 Chatapp</p>
 
-    <a href="index.php" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
-      <img class="img-fluid" src="assets/images/logo.png" width="100px" alt="logo">
-    </a>
-
-    <ul class="nav col-md-4 justify-content-end">
-      <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Home</a></li>
-      <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Features</a></li>
-      <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Pricing</a></li>
-      <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">FAQs</a></li>
-      <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">About</a></li>
-    </ul>
-  </footer>
-</div>
 <?php $content = ob_get_clean(); ?>
 <?php require 'views/layout.php'; ?>

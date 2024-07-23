@@ -4,10 +4,10 @@ require 'models/userModel.php';
 
 if (isset($_GET['action']) && $_GET['action'] === 'create-user') {
 
-  $username = htmlspecialchars($_POST['username']) ?? '';
-  $email = htmlspecialchars($_POST['email']) ?? '';
-  $password = htmlspecialchars($_POST['password']) ?? '';
-  $passwordRepeat = htmlspecialchars($_POST['passwordRepeat']) ?? '';
+  $username = $_POST['username'] ?? '';
+  $email = $_POST['email'] ?? '';
+  $password = $_POST['password'] ?? '';
+  $passwordRepeat = $_POST['passwordRepeat'] ?? '';
 
   $usernameErr = $emailErr = $passwordErr = $PasswordRepeatErr = "";
 
@@ -46,7 +46,7 @@ if (isset($_GET['action']) && $_GET['action'] === 'create-user') {
 
     if ($result) {
       $_SESSION['SIGNUP_SUCCESS'] = 'Your account has been created successfully, please Sign in';
-      header('Location: index.php?page=login');
+      header('Location: /login');
     } else {
       $signUpErr = 'An error has occured, Please try again later.';
       require 'views/signup.php';
