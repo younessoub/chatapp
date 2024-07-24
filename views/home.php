@@ -26,7 +26,7 @@
     <div class="d-flex justify-content-center">
       <a href="<?= isset($_SESSION['USER']) ? '/create-room' : '/login'; ?>" class="btn btn-primary me-3 px-4">Create
         Room</a>
-      <a href="#" class="btn btn-outline-primary px-4">Join Room</a>
+      <a href="/rooms" class="btn btn-outline-primary px-4">Join Room</a>
     </div>
   </div>
 
@@ -48,7 +48,7 @@
       <?php endforeach ?>
     </div>
 
-    <div class="text-end"><a href="#" class="btn btn-primary btn-lg mt-5 ">Explore More Rooms...</a></div>
+    <div class="text-end"><a href="/rooms" class="btn btn-primary btn-lg mt-5 ">Explore More Rooms...</a></div>
   </div>
 
 </main>

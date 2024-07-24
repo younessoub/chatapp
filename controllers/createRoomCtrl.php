@@ -48,12 +48,14 @@ if (!isset($_SESSION['USER'])) {
       move_uploaded_file($image['tmp_name'], $imgPath);
 
       // save it to database
-      $roomCreated = createRoom($database, $name, $description, $imgPath, $userId);
-      if (!$roomCreated) {
+      $createdRoomId = createRoom($database, $name, $description, $imgPath, $userId);
+
+      if (!$createdRoomId) {
         $Err = 'An error has occured please try again later';
         require 'views/create-room.php';
       } else {
-        require 'views/create-room.php';
+
+        header('Location: /room?id=' . $createdRoomId);
       }
     } else {
       // render the form with errors

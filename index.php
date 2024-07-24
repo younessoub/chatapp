@@ -19,6 +19,10 @@ try {
       require 'controllers/createRoomCtrl.php';
     } elseif ($sitePage === 'room') {
       require 'controllers/roomCtrl.php';
+    } elseif ($sitePage === 'rooms') {
+      require 'controllers/roomsCtrl.php';
+    } elseif ($sitePage === 'delete-room') {
+      require 'controllers/deleteRoomCtrl.php';
     } else {
       echo 'Page Not Found';
     }

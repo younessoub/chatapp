@@ -43,6 +43,25 @@
         </div>
       <?php endif ?>
     </section>
+
+    <section>
+      <h3>My Rooms</h3>
+      <div class="row row-cols-1 row-cols-md-3 g-4">
+        <?php foreach ($userRooms as $room): ?>
+          <div class="col" id="card">
+            <div class="card shadow-sm ">
+              <img src="<?= $room['image'] ?>" width="200px" height="300px" class="card-img-top" alt="Room image">
+              <div class="card-body">
+                <h5 class="card-title"><?= $room['name'] ?></h5>
+                <p class="card-text"><?= $room['description'] ?></p>
+                <a href="<?= isset($_SESSION['USER']) ? '/room?id=' . $room['id'] : '/login'; ?>"
+                  class="btn btn-md btn-outline-primary float-end ">Enter</a>
+              </div>
+            </div>
+          </div>
+        <?php endforeach ?>
+      </div>
+    </section>
   </div>
 
 </main>

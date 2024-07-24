@@ -6,6 +6,9 @@ if (!isset($_SESSION['USER'])) {
 } else {
 
   require 'models/userModel.php';
+  require 'models/roomModel.php';
+
+  $userRooms = getUserRooms($database, $_SESSION['USER']['id']);
 
   // check for form submition
   if (isset($_GET['action']) && $_GET['action'] === 'update-image') {

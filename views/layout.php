@@ -38,8 +38,12 @@
           <a href="/profile"
             class="nav-link px-2  <?= isset($sitePage) && $sitePage === 'profile' ? 'active' : 'link-dark' ?>">Profile</a>
         </li>
-        <li><a href="#" class="nav-link px-2 link-dark">Pricing</a></li>
-        <li><a href="#" class="nav-link px-2 link-dark">FAQs</a></li>
+        <li><a href="/rooms"
+            class="nav-link px-2 <?= isset($sitePage) && $sitePage === 'rooms' ? 'active' : 'link-dark' ?>">Rooms</a>
+        </li>
+        <li><a href="/create-room"
+            class="nav-link px-2 <?= isset($sitePage) && $sitePage === 'create-room' ? 'active' : 'link-dark' ?>">Create</a>
+        </li>
         <li><a href="#" class="nav-link px-2 link-dark">About</a></li>
       </ul>
       <?php if (isset($_SESSION['USER'])) { ?>
@@ -79,8 +83,8 @@
       <ul class="nav col-md-4 justify-content-end">
         <li class="nav-item"><a href="/" class="nav-link px-2 text-secondary">Home</a></li>
         <li class="nav-item"><a href="/profile" class="nav-link px-2 text-secondary">Profile</a></li>
-        <li class="nav-item"><a href="#" class="nav-link px-2 text-secondary">Pricing</a></li>
-        <li class="nav-item"><a href="#" class="nav-link px-2 text-secondary">FAQs</a></li>
+        <li class="nav-item"><a href="/rooms" class="nav-link px-2 text-secondary">Rooms</a></li>
+        <li class="nav-item"><a href="/create-room" class="nav-link px-2 text-secondary">Create</a></li>
         <li class="nav-item"><a href="#" class="nav-link px-2 text-secondary">About</a></li>
       </ul>
     </footer>
