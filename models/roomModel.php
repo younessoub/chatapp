@@ -26,3 +26,12 @@ function getRooms($database)
   $rows = $statement->fetchAll(PDO::FETCH_ASSOC);
   return $rows;
 }
+
+function getRoomInfo($database, $roomId)
+{
+  $sql = "SELECT * FROM rooms WHERE id = ?;";
+  $statement = $database->prepare($sql);
+  $statement->execute([$roomId]);
+  $row = $statement->fetch(PDO::FETCH_ASSOC);
+  return $row;
+}

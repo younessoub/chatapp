@@ -17,6 +17,8 @@ try {
       require 'controllers/profileCtrl.php';
     } elseif ($sitePage === 'create-room') {
       require 'controllers/createRoomCtrl.php';
+    } elseif ($sitePage === 'room') {
+      require 'controllers/roomCtrl.php';
     } else {
       echo 'Page Not Found';
     }
