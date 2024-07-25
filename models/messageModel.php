@@ -2,7 +2,7 @@
 
 function getMessages($database, $roomId = 1)
 {
-  $sql = "SELECT * FROM users JOIN messages ON users.id = messages.sender_id AND room_id = ?;";
+  $sql = "SELECT * FROM users JOIN messages ON users.id = messages.sender_id AND room_id = ? ORDER BY created_at;";
   $statement = $database->prepare($sql);
   $statement->execute([$roomId]);
   $rows = $statement->fetchAll(PDO::FETCH_ASSOC);

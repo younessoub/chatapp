@@ -7,6 +7,7 @@
     max-height: 50vh;
   }
 </style>
+<script defer src="assets/js/room.js"></script>
 <main>
   <div class="container mt-3">
     <div class="d-flex justify-content-between align-items-center mb-5">
@@ -86,7 +87,7 @@
       </div>
       <div class="card-footer">
 
-        <form action="/room?id=<?= $room['id'] ?>&action=add-message" method="POST">
+        <form id="sendMessageForm">
           <div class="input-group">
             <input type="text" name="message" class="form-control" id="message-input" placeholder="Type your message..."
               autofocus required>
