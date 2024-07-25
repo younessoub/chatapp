@@ -13,17 +13,15 @@ if (!isset($_SESSION['USER'])) {
   $roomToDelete = $_GET['id'];
 
   // check if user is authorized to delete the room
-  $authorized = false;
 
   foreach ($userRooms as $room) {
 
     if ($room['created_by'] === $_SESSION['USER']['id'] && $room['id'] == $roomToDelete) {
-      $authorized = true;
+      deleteRoom($database, $roomToDelete); //delete path from database
+      if (file_exists($room['image'])) { //delete the image from the uploads folder
+        unlink($room['image']);
+      }
     }
-  }
-
-  if ($authorized) {
-    deleteRoom($database, $roomToDelete);
   }
 
   header('Location: /profile');
