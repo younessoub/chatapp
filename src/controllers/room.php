@@ -5,8 +5,6 @@ if (!isset($_SESSION['USER'])) {
 } else {
   if (isset($_GET['id'])) {
     $roomId = $_GET['id'];
-    require 'models/roomModel.php';
-    require 'models/messageModel.php';
 
     // get room info
     $room = getRoominfo($database, $roomId);
@@ -25,7 +23,7 @@ if (!isset($_SESSION['USER'])) {
       }
     }
 
-    require 'views/room.php';
+    require '../src/views/room.view.php';
 
   } else {
     header('Location: /');

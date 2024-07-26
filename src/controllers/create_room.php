@@ -4,7 +4,6 @@ if (!isset($_SESSION['USER'])) {
   header('Location: /login');
 } else {
 
-  require 'models/roomModel.php';
 
   // check if user submitted the form otherwise render the form
   if (!empty($_POST)) {
@@ -52,19 +51,19 @@ if (!isset($_SESSION['USER'])) {
 
       if (!$createdRoomId) {
         $Err = 'An error has occured please try again later';
-        require 'views/create-room.php';
+        require '../src/views/create-room.view.php';
       } else {
 
         header('Location: /room?id=' . $createdRoomId);
       }
     } else {
       // render the form with errors
-      require 'views/create-room.php';
+      require '../src/views/create_room.view.php';
     }
 
   } else {
 
-    require 'views/create-room.php';
+    require '../src/views/create_room.view.php';
   }
 
 }

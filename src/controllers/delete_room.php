@@ -8,7 +8,6 @@ if (!isset($_SESSION['USER'])) {
   header('Location: /');
 } else {
 
-  require 'models/roomModel.php';
   $userRooms = getUserRooms($database, $_SESSION['USER']['id']);
   $roomToDelete = $_GET['id'];
 

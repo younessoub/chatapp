@@ -1,7 +1,5 @@
 <?php
 
-require 'models/userModel.php';
-
 if (isset($_GET['action']) && $_GET['action'] === 'create-user') {
 
   $username = $_POST['username'] ?? '';
@@ -49,15 +47,14 @@ if (isset($_GET['action']) && $_GET['action'] === 'create-user') {
       header('Location: /login');
     } else {
       $signUpErr = 'An error has occured, Please try again later.';
-      require 'views/signup.php';
+      require '../src/views/signup.view.php';
     }
 
   } else {
     // show the form with errors
-    require 'views/signup.php';
+    require '../src/views/signup.view.php';
   }
 
 } else {
-
-  require 'views/signup.php';
+  require '../src/views/signup.view.php';
 }

@@ -1,7 +1,5 @@
 <?php
 
-require 'models/userModel.php';
-
 if (isset($_GET['action']) && $_GET['action'] === 'log-user') {
 
   $email = $_POST['email'] ?? '';
@@ -33,12 +31,12 @@ if (isset($_GET['action']) && $_GET['action'] === 'log-user') {
     header('Location: /');
   } else {
     // show form with errors
-    require 'views/login.php';
+    require '../src/views/login.view.php';
   }
 } elseif (isset($_GET['action']) && $_GET['action'] === 'logout-user') {
   session_unset();
   session_destroy();
-  require 'views/login.php';
+  require '../src/views/login.view.php';
 } else {
-  require 'views/login.php';
+  require '../src/views/login.view.php';
 }

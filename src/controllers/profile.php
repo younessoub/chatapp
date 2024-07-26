@@ -5,9 +5,6 @@ if (!isset($_SESSION['USER'])) {
   header('Location: /login');
 } else {
 
-  require 'models/userModel.php';
-  require 'models/roomModel.php';
-
   $userRooms = getUserRooms($database, $_SESSION['USER']['id']);
 
   // check for form submition
@@ -41,12 +38,12 @@ if (!isset($_SESSION['USER'])) {
 
       } else {
         $imageErr = 'The uploaded file is not an image';
-        require 'views/profile.php';
+        require '../src/views/profile.view.php';
       }
 
     } else {
       $imageErr = 'Please provide a valid image';
-      require 'views/profile.php';
+      require '../src/views/profile.view.php';
     }
 
   } elseif (isset($_GET['action']) && $_GET['action'] === 'delete-image') {
@@ -62,6 +59,6 @@ if (!isset($_SESSION['USER'])) {
     }
   } else {
     // show profile page
-    require 'views/profile.php';
+    require '../src/views/profile.view.php';
   }
 }

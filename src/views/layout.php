@@ -32,17 +32,15 @@
 
       <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
         <li>
-          <a href="/" class="nav-link px-2 <?= !isset($sitePage) ? 'active' : 'link-dark' ?>">Home</a>
+          <a href="/" class="nav-link px-2 <?= $path === '/' ? 'active' : 'link-dark' ?>">Home</a>
         </li>
         <li>
-          <a href="/profile"
-            class="nav-link px-2  <?= isset($sitePage) && $sitePage === 'profile' ? 'active' : 'link-dark' ?>">Profile</a>
+          <a href="/profile" class="nav-link px-2  <?= $path === '/profile' ? 'active' : 'link-dark' ?>">Profile</a>
         </li>
-        <li><a href="/rooms"
-            class="nav-link px-2 <?= isset($sitePage) && $sitePage === 'rooms' ? 'active' : 'link-dark' ?>">Rooms</a>
+        <li><a href="/rooms" class="nav-link px-2 <?= $path === '/rooms' ? 'active' : 'link-dark' ?>">Rooms</a>
         </li>
         <li><a href="/create-room"
-            class="nav-link px-2 <?= isset($sitePage) && $sitePage === 'create-room' ? 'active' : 'link-dark' ?>">Create</a>
+            class="nav-link px-2 <?= $path === '/create-room' ? 'active' : 'link-dark' ?>">Create</a>
         </li>
         <li><a href="#" class="nav-link px-2 link-dark">About</a></li>
       </ul>
